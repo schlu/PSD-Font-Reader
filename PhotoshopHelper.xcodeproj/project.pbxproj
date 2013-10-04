@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A33C81317FE6ADE0082AD47 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C81217FE6ADE0082AD47 /* Cocoa.framework */; };
+		8A33C81D17FE6ADE0082AD47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C81B17FE6ADE0082AD47 /* InfoPlist.strings */; };
+		8A33C81F17FE6ADE0082AD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C81E17FE6ADE0082AD47 /* main.m */; };
+		8A33C82317FE6ADE0082AD47 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82117FE6ADE0082AD47 /* Credits.rtf */; };
+		8A33C82617FE6ADE0082AD47 /* PSHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */; };
+		8A33C82917FE6ADE0082AD47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82717FE6ADE0082AD47 /* MainMenu.xib */; };
+		8A33C82B17FE6ADE0082AD47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82A17FE6ADE0082AD47 /* Images.xcassets */; };
+		8A33C83217FE6ADE0082AD47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C83117FE6ADE0082AD47 /* XCTest.framework */; };
+		8A33C83317FE6ADE0082AD47 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C81217FE6ADE0082AD47 /* Cocoa.framework */; };
+		8A33C83B17FE6ADE0082AD47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C83917FE6ADE0082AD47 /* InfoPlist.strings */; };
+		8A33C83D17FE6ADE0082AD47 /* PhotoshopHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C83C17FE6ADE0082AD47 /* PhotoshopHelperTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A33C83417FE6ADE0082AD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A33C80717FE6ADE0082AD47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A33C80E17FE6ADE0082AD47;
+			remoteInfo = PhotoshopHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8A33C80F17FE6ADE0082AD47 /* PhotoshopHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoshopHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A33C81217FE6ADE0082AD47 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8A33C81517FE6ADE0082AD47 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8A33C81617FE6ADE0082AD47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A33C81717FE6ADE0082AD47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8A33C81A17FE6ADE0082AD47 /* PhotoshopHelper-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoshopHelper-Info.plist"; sourceTree = "<group>"; };
+		8A33C81C17FE6ADE0082AD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8A33C81E17FE6ADE0082AD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A33C82017FE6ADE0082AD47 /* PhotoshopHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoshopHelper-Prefix.pch"; sourceTree = "<group>"; };
+		8A33C82217FE6ADE0082AD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8A33C82417FE6ADE0082AD47 /* PSHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHAppDelegate.h; sourceTree = "<group>"; };
+		8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHAppDelegate.m; sourceTree = "<group>"; };
+		8A33C82817FE6ADE0082AD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8A33C82A17FE6ADE0082AD47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8A33C83017FE6ADE0082AD47 /* PhotoshopHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoshopHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A33C83117FE6ADE0082AD47 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8A33C83817FE6ADE0082AD47 /* PhotoshopHelperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoshopHelperTests-Info.plist"; sourceTree = "<group>"; };
+		8A33C83A17FE6ADE0082AD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8A33C83C17FE6ADE0082AD47 /* PhotoshopHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoshopHelperTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A33C80C17FE6ADE0082AD47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C81317FE6ADE0082AD47 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A33C82D17FE6ADE0082AD47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C83317FE6ADE0082AD47 /* Cocoa.framework in Frameworks */,
+				8A33C83217FE6ADE0082AD47 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A33C80617FE6ADE0082AD47 = {
+			isa = PBXGroup;
+			children = (
+				8A33C81817FE6ADE0082AD47 /* PhotoshopHelper */,
+				8A33C83617FE6ADE0082AD47 /* PhotoshopHelperTests */,
+				8A33C81117FE6ADE0082AD47 /* Frameworks */,
+				8A33C81017FE6ADE0082AD47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8A33C81017FE6ADE0082AD47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C80F17FE6ADE0082AD47 /* PhotoshopHelper.app */,
+				8A33C83017FE6ADE0082AD47 /* PhotoshopHelperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A33C81117FE6ADE0082AD47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C81217FE6ADE0082AD47 /* Cocoa.framework */,
+				8A33C83117FE6ADE0082AD47 /* XCTest.framework */,
+				8A33C81417FE6ADE0082AD47 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A33C81417FE6ADE0082AD47 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C81517FE6ADE0082AD47 /* AppKit.framework */,
+				8A33C81617FE6ADE0082AD47 /* CoreData.framework */,
+				8A33C81717FE6ADE0082AD47 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8A33C81817FE6ADE0082AD47 /* PhotoshopHelper */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C82417FE6ADE0082AD47 /* PSHAppDelegate.h */,
+				8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */,
+				8A33C82717FE6ADE0082AD47 /* MainMenu.xib */,
+				8A33C82A17FE6ADE0082AD47 /* Images.xcassets */,
+				8A33C81917FE6ADE0082AD47 /* Supporting Files */,
+			);
+			path = PhotoshopHelper;
+			sourceTree = "<group>";
+		};
+		8A33C81917FE6ADE0082AD47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C81A17FE6ADE0082AD47 /* PhotoshopHelper-Info.plist */,
+				8A33C81B17FE6ADE0082AD47 /* InfoPlist.strings */,
+				8A33C81E17FE6ADE0082AD47 /* main.m */,
+				8A33C82017FE6ADE0082AD47 /* PhotoshopHelper-Prefix.pch */,
+				8A33C82117FE6ADE0082AD47 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A33C83617FE6ADE0082AD47 /* PhotoshopHelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C83C17FE6ADE0082AD47 /* PhotoshopHelperTests.m */,
+				8A33C83717FE6ADE0082AD47 /* Supporting Files */,
+			);
+			path = PhotoshopHelperTests;
+			sourceTree = "<group>";
+		};
+		8A33C83717FE6ADE0082AD47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A33C83817FE6ADE0082AD47 /* PhotoshopHelperTests-Info.plist */,
+				8A33C83917FE6ADE0082AD47 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A33C80E17FE6ADE0082AD47 /* PhotoshopHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A33C84017FE6ADE0082AD47 /* Build configuration list for PBXNativeTarget "PhotoshopHelper" */;
+			buildPhases = (
+				8A33C80B17FE6ADE0082AD47 /* Sources */,
+				8A33C80C17FE6ADE0082AD47 /* Frameworks */,
+				8A33C80D17FE6ADE0082AD47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoshopHelper;
+			productName = PhotoshopHelper;
+			productReference = 8A33C80F17FE6ADE0082AD47 /* PhotoshopHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8A33C82F17FE6ADE0082AD47 /* PhotoshopHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A33C84317FE6ADE0082AD47 /* Build configuration list for PBXNativeTarget "PhotoshopHelperTests" */;
+			buildPhases = (
+				8A33C82C17FE6ADE0082AD47 /* Sources */,
+				8A33C82D17FE6ADE0082AD47 /* Frameworks */,
+				8A33C82E17FE6ADE0082AD47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A33C83517FE6ADE0082AD47 /* PBXTargetDependency */,
+			);
+			name = PhotoshopHelperTests;
+			productName = PhotoshopHelperTests;
+			productReference = 8A33C83017FE6ADE0082AD47 /* PhotoshopHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A33C80717FE6ADE0082AD47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PSH;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "2 Limes";
+				TargetAttributes = {
+					8A33C82F17FE6ADE0082AD47 = {
+						TestTargetID = 8A33C80E17FE6ADE0082AD47;
+					};
+				};
+			};
+			buildConfigurationList = 8A33C80A17FE6ADE0082AD47 /* Build configuration list for PBXProject "PhotoshopHelper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A33C80617FE6ADE0082AD47;
+			productRefGroup = 8A33C81017FE6ADE0082AD47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A33C80E17FE6ADE0082AD47 /* PhotoshopHelper */,
+				8A33C82F17FE6ADE0082AD47 /* PhotoshopHelperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A33C80D17FE6ADE0082AD47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C81D17FE6ADE0082AD47 /* InfoPlist.strings in Resources */,
+				8A33C82B17FE6ADE0082AD47 /* Images.xcassets in Resources */,
+				8A33C82317FE6ADE0082AD47 /* Credits.rtf in Resources */,
+				8A33C82917FE6ADE0082AD47 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A33C82E17FE6ADE0082AD47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C83B17FE6ADE0082AD47 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A33C80B17FE6ADE0082AD47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C82617FE6ADE0082AD47 /* PSHAppDelegate.m in Sources */,
+				8A33C81F17FE6ADE0082AD47 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A33C82C17FE6ADE0082AD47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A33C83D17FE6ADE0082AD47 /* PhotoshopHelperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A33C83517FE6ADE0082AD47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A33C80E17FE6ADE0082AD47 /* PhotoshopHelper */;
+			targetProxy = 8A33C83417FE6ADE0082AD47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8A33C81B17FE6ADE0082AD47 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A33C81C17FE6ADE0082AD47 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8A33C82117FE6ADE0082AD47 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A33C82217FE6ADE0082AD47 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		8A33C82717FE6ADE0082AD47 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A33C82817FE6ADE0082AD47 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		8A33C83917FE6ADE0082AD47 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A33C83A17FE6ADE0082AD47 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A33C83E17FE6ADE0082AD47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8A33C83F17FE6ADE0082AD47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8A33C84117FE6ADE0082AD47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoshopHelper/PhotoshopHelper-Prefix.pch";
+				INFOPLIST_FILE = "PhotoshopHelper/PhotoshopHelper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8A33C84217FE6ADE0082AD47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoshopHelper/PhotoshopHelper-Prefix.pch";
+				INFOPLIST_FILE = "PhotoshopHelper/PhotoshopHelper-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8A33C84417FE6ADE0082AD47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoshopHelper.app/Contents/MacOS/PhotoshopHelper";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoshopHelper/PhotoshopHelper-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PhotoshopHelperTests/PhotoshopHelperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8A33C84517FE6ADE0082AD47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoshopHelper.app/Contents/MacOS/PhotoshopHelper";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoshopHelper/PhotoshopHelper-Prefix.pch";
+				INFOPLIST_FILE = "PhotoshopHelperTests/PhotoshopHelperTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A33C80A17FE6ADE0082AD47 /* Build configuration list for PBXProject "PhotoshopHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A33C83E17FE6ADE0082AD47 /* Debug */,
+				8A33C83F17FE6ADE0082AD47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A33C84017FE6ADE0082AD47 /* Build configuration list for PBXNativeTarget "PhotoshopHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A33C84117FE6ADE0082AD47 /* Debug */,
+				8A33C84217FE6ADE0082AD47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8A33C84317FE6ADE0082AD47 /* Build configuration list for PBXNativeTarget "PhotoshopHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A33C84417FE6ADE0082AD47 /* Debug */,
+				8A33C84517FE6ADE0082AD47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A33C80717FE6ADE0082AD47 /* Project object */;
+}
