@@ -19,11 +19,17 @@
 
 @implementation PSHDropView
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (id)initWithFrame:(NSRect)frameRect {
     if (self = [super initWithFrame:frameRect]) {
         [self registerForDraggedTypes:@[NSFilenamesPboardType]];
         self.windowControllers = [NSMutableArray array];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:nil];
     
     return self;
 }
@@ -70,6 +76,13 @@
     NSString *fileName = files[0];
     NSURL *fileUrl = [NSURL fileURLWithPath:fileName];
     [self processPsd:fileUrl];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    NSWindow *window = notification.object;
+    if (window.windowController && [self.windowControllers containsObject:window.windowController]) {
+        [self.windowControllers removeObject:window.windowController];
+    }
 }
 
 @end

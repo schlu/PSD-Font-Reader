@@ -21,7 +21,6 @@
         PSHPSDLayer *child = [PSHPSDLayer psdLayerWithFMPSDLayer:layer psd:psd parent:psdLayer];
         if (layer.isText) {
             child.hasTextDecendant = NO;
-            NSLog(@"text layer %@ with ancestors %@", child, [child ancestors]);
             [child markParentsForText];
         }
         [psdLayer.children addObject:child];
@@ -30,10 +29,8 @@
 }
 
 - (void)markParentsForText {
-    PSHPSDLayer *up = self.parent;
-    while (up) {
-        up.hasTextDecendant = YES;
-        up = up.parent;
+    for (PSHPSDLayer *ancestor in [self ancestors]) {
+        ancestor.hasTextDecendant = YES;
     }
 }
 
