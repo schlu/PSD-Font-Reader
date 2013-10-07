@@ -108,16 +108,21 @@
         }
     } else {
         PSHPSDLayer *layer = item;
+        PSHTextPart *textPart = nil;
+        if ([layer.textParts count] == 1) {
+            textPart = layer.textParts[0];
+        }
         if ([[theColumn identifier] isEqualToString:@"LayerName"])
         {
             return layer.fmPSDLayer.layerName;
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontName"])
+        else if ([[theColumn identifier] isEqualToString:@"FontName"] && textPart)
         {
-            
+            return textPart.fontName;
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontSize"])
+        else if ([[theColumn identifier] isEqualToString:@"FontSize"] && textPart)
         {
+            return [NSString stringWithFormat:@"%f", textPart.fontSize];
             
         }
     }

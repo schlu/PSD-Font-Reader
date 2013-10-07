@@ -64,13 +64,13 @@
 }
 
 - (BOOL)isExpandable {
-    return (self.fmPSDLayer.isGroup && self.hasTextDecendant) || [self.textParts count] > 0;
+    return [self numberOfChildren] > 0;
 }
 
 - (NSInteger)numberOfChildren {
     if (self.hasTextDecendant) {
         return [self.childrenToDisplay count];
-    } else if ([self.textParts count] > 0) {
+    } else if ([self.textParts count] > 1) {
         return [self.textParts count];
     }
     return 0;
