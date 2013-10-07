@@ -1245,11 +1245,6 @@ void decodeRLE(char *src, int sindex, int slen, char *dst, int dindex) {
 }
 
 - (void)printTree:(NSString*)spacing {
-    
-    if (_isText) {
-        NSLog(@"stop %@", ((FMPSDTextEngineParser *)self.textDescriptor.attributes[@"EngineData"]).parsedProperties);
-    }
-    
     debug(@"%@%@%@", spacing, _isGroup ? @"+" : @"*", _layerName);
     
     spacing = [spacing stringByAppendingString:@"  "];

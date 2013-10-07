@@ -33,6 +33,7 @@
 		8A33C87217FF5CC10082AD47 /* PSHOutlineWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C87017FF5CC10082AD47 /* PSHOutlineWindowController.xib */; };
 		8A33C876180048570082AD47 /* PSHPSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C875180048570082AD47 /* PSHPSD.m */; };
 		8A33C879180048AB0082AD47 /* PSHPSDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C878180048AB0082AD47 /* PSHPSDLayer.m */; };
+		8A33C87C1800929F0082AD47 /* PSHTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C87B1800929F0082AD47 /* PSHTextPart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		8A33C875180048570082AD47 /* PSHPSD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHPSD.m; sourceTree = "<group>"; };
 		8A33C877180048AB0082AD47 /* PSHPSDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHPSDLayer.h; sourceTree = "<group>"; };
 		8A33C878180048AB0082AD47 /* PSHPSDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHPSDLayer.m; sourceTree = "<group>"; };
+		8A33C87A1800929F0082AD47 /* PSHTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHTextPart.h; sourceTree = "<group>"; };
+		8A33C87B1800929F0082AD47 /* PSHTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHTextPart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				8A33C875180048570082AD47 /* PSHPSD.m */,
 				8A33C877180048AB0082AD47 /* PSHPSDLayer.h */,
 				8A33C878180048AB0082AD47 /* PSHPSDLayer.m */,
+				8A33C87A1800929F0082AD47 /* PSHTextPart.h */,
+				8A33C87B1800929F0082AD47 /* PSHTextPart.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A33C85A17FE6B050082AD47 /* FMPSD.m in Sources */,
+				8A33C87C1800929F0082AD47 /* PSHTextPart.m in Sources */,
 				8A33C85C17FE6B050082AD47 /* FMPSDDescriptor.m in Sources */,
 				8A33C82617FE6ADE0082AD47 /* PSHAppDelegate.m in Sources */,
 				8A33C85E17FE6B050082AD47 /* FMPSDStream.m in Sources */,

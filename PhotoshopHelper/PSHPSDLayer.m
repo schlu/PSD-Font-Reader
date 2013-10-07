@@ -8,6 +8,8 @@
 
 #import "PSHPSDLayer.h"
 #import "FMPSD.h"
+#import "FMPSDTextEngineParser.h"
+#import "PSHTextPart.h"
 
 @implementation PSHPSDLayer
 
@@ -55,6 +57,98 @@
         up = up.parent;
     }
     return ancestors;
+}
+
+- (BOOL)isText {
+    return self.fmPSDLayer.isText;
+}
+
+- (BOOL)isExpandable {
+    return (self.fmPSDLayer.isGroup && self.hasTextDecendant) || [self.textParts count] > 0;
+}
+
+- (NSInteger)numberOfChildren {
+    if (self.hasTextDecendant) {
+        return [self.childrenToDisplay count];
+    } else if ([self.textParts count] > 0) {
+        return [self.textParts count];
+    }
+    return 0;
+}
+
+- (id)childAtIndex:(NSInteger)index {
+    if (self.hasTextDecendant) {
+        return self.childrenToDisplay[index];
+    } else if ([self.textParts count] > 0) {
+        return self.textParts[index];
+    }
+    return nil;
+}
+
+- (NSArray *)fontNames {
+    if ([self isText]) {
+        NSMutableArray *fontNames = [NSMutableArray array];
+        NSDictionary *parsedTextProperties = [self parsedTextProperties];
+        if (parsedTextProperties) {
+            if (parsedTextProperties[@"ResourceDict"] && parsedTextProperties[@"ResourceDict"][@"FontSet"]) {
+                for (NSDictionary *fontDict in parsedTextProperties[@"ResourceDict"][@"FontSet"]) {
+                    if ([fontDict isKindOfClass:[NSDictionary class]] && fontDict[@"Name"]) {
+                        [fontNames addObject:fontDict[@"Name"]];
+                    }
+                }
+            }
+        }
+        
+        return fontNames;
+    } else {
+        return @[];
+    }
+}
+
+- (NSDictionary *)parsedTextProperties {
+    FMPSDTextEngineParser *parser = self.fmPSDLayer.textDescriptor.attributes[@"EngineData"];
+    if (parser && parser.parsedProperties) {
+        return parser.parsedProperties;
+    } else {
+        return nil;
+    }
+}
+
+- (NSMutableArray *)textParts {
+    if (!_textParts) {
+        _textParts = [NSMutableArray array];
+        if ([self isText]) {
+            NSDictionary *parsedTextProperties = [self parsedTextProperties];
+            if (parsedTextProperties && parsedTextProperties[@"EngineDict"][@"StyleRun"] && parsedTextProperties[@"EngineDict"][@"Editor"]) {
+                NSString *text = parsedTextProperties[@"EngineDict"][@"Editor"][@"Text"];
+                NSInteger currentChar = 0;
+                NSArray *runLengths = [parsedTextProperties[@"EngineDict"][@"StyleRun"][@"RunLengthArray"] componentsSeparatedByString:@" "];
+                NSInteger currentStyle = 0;
+                for (NSString *runLength in runLengths) {
+                    if (![runLength isEqualToString:@"["] && ![runLength isEqualToString:@"]"]) {
+                        NSInteger charCount = [runLength integerValue];
+                        if (currentChar + charCount > [text length]) {
+                            charCount = charCount - 1;
+                        }
+                        NSString *partString = [text substringWithRange:NSMakeRange(currentChar, charCount)];
+                        currentChar += charCount;
+                        PSHTextPart *textPart = [[PSHTextPart alloc] init];
+                        textPart.textRepresented = partString;
+                        
+                        NSDictionary *styleSheet = parsedTextProperties[@"EngineDict"][@"StyleRun"][@"RunArray"][currentStyle][@"StyleSheet"][@"StyleSheetData"];
+                        textPart.fontName = [self fontNames][[styleSheet[@"Font"] intValue]];
+                        textPart.fontSize = [styleSheet[@"FontSize"] floatValue];
+                        
+                        [_textParts addObject:textPart];
+                        
+                        currentStyle++;
+                    }
+                }
+            }
+        }
+    }
+    
+    return _textParts;
 }
 
 @end

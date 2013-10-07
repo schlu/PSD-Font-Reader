@@ -10,6 +10,7 @@
 #import "PSHPSD.h"
 #import "PSHPSDLayer.h"
 #import "FMPSD.h"
+#import "PSHTextPart.h"
 
 @interface PSHOutlineWindowController () <NSOutlineViewDataSource>
 
@@ -43,65 +44,82 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    PSHPSDLayer *layer = item;
-    if (layer.fmPSDLayer.isGroup)
-        return YES;
-    else
+    if ([item isKindOfClass:[PSHTextPart class]]) {
         return NO;
+    } else {
+        PSHPSDLayer *layer = item;
+        return [layer isExpandable];
+    }
 }
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
-    PSHPSDLayer *layer = item;
-    if (layer==nil)
-    {
-        return [self.psd.rootLayer.childrenToDisplay count];
-    }
-    else
-    {
-        if (layer.hasTextDecendant)
+    if ([item isKindOfClass:[PSHTextPart class]]) {
+        return 0;
+    } else {
+        PSHPSDLayer *layer = item;
+        if (layer==nil)
         {
-            return [layer.childrenToDisplay count];
+            return [self.psd.rootLayer numberOfChildren];
         }
         else
         {
-            return 0;
+            return [layer numberOfChildren];
         }
     }
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
-    PSHPSDLayer *layer = item;
-    if (item == nil)
-    {
-        // Root
-        return self.psd.rootLayer.childrenToDisplay[index];
+    if (![item isKindOfClass:[PSHTextPart class]]) {
+        PSHPSDLayer *layer = item;
+        if (item == nil)
+        {
+            // Root
+            return [self.psd.rootLayer childAtIndex:index];
+        }
+        
+        if ([layer isExpandable])
+        {
+            return [layer childAtIndex:index];
+        }
     }
-    
-    if (layer.fmPSDLayer.isGroup)
-    {
-        return layer.childrenToDisplay[index];
-    }
-    
+
     // File
     return nil;
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)theColumn byItem:(id)item
-{
-    PSHPSDLayer *layer = item;
-    if ([[theColumn identifier] isEqualToString:@"LayerName"])
-    {
-        return layer.fmPSDLayer.layerName;
-    }
-    else if ([[theColumn identifier] isEqualToString:@"FontName"])
-    {
-        
-    }
-    else if ([[theColumn identifier] isEqualToString:@"FontSize"])
-    {
-        
+{   
+    if ([item isKindOfClass:[PSHTextPart class]]) {
+        PSHTextPart *textPart = item;
+        if ([[theColumn identifier] isEqualToString:@"LayerName"])
+        {
+            return textPart.textRepresented;
+        }
+        else if ([[theColumn identifier] isEqualToString:@"FontName"])
+        {
+            return textPart.fontName;
+        }
+        else if ([[theColumn identifier] isEqualToString:@"FontSize"])
+        {
+            return [NSString stringWithFormat:@"%f", textPart.fontSize];
+            
+        }
+    } else {
+        PSHPSDLayer *layer = item;
+        if ([[theColumn identifier] isEqualToString:@"LayerName"])
+        {
+            return layer.fmPSDLayer.layerName;
+        }
+        else if ([[theColumn identifier] isEqualToString:@"FontName"])
+        {
+            
+        }
+        else if ([[theColumn identifier] isEqualToString:@"FontSize"])
+        {
+            
+        }
     }
     
     // Never reaches here
