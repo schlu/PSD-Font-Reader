@@ -139,7 +139,12 @@
                         textPart.fontName = [self fontNames][[styleSheet[@"Font"] intValue]];
                         textPart.fontSize = [styleSheet[@"FontSize"] floatValue];
                         
-                        [_textParts addObject:textPart];
+                        if (currentStyle > 0 && [textPart sameFontAsTextPart:_textParts[currentStyle - 1]]) {
+                            PSHTextPart *lastTextPart = _textParts[currentStyle - 1];
+                            lastTextPart.textRepresented = [lastTextPart.textRepresented stringByAppendingString:textPart.textRepresented];
+                        } else {
+                            [_textParts addObject:textPart];
+                        }
                         
                         currentStyle++;
                     }

@@ -14,4 +14,6 @@
 @property (nonatomic, assign) float fontSize;
 @property (nonatomic, strong) NSString *textRepresented;
 
+- (BOOL)sameFontAsTextPart:(PSHTextPart *)textPart;
+
 @end
