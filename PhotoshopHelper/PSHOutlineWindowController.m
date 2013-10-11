@@ -12,11 +12,22 @@
 #import "FMPSD.h"
 #import "PSHTextPart.h"
 
-@interface PSHOutlineWindowController () <NSOutlineViewDataSource>
+@interface PSHOutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
+@property (weak) IBOutlet NSTextField *documentSizeLabel;
+@property (weak) IBOutlet NSTextField *colorLabel;
+@property (weak) IBOutlet NSTextField *fontLabel;
+@property (weak) IBOutlet NSTextField *scaleField;
+@property (weak) IBOutlet NSOutlineView *outlineView;
+@property (weak) IBOutlet NSTextField *frameLabel;
+@property (weak) IBOutlet NSImageView *imageView;
 
 @end
 
 @implementation PSHOutlineWindowController
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -30,8 +41,65 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    for (NSTextField *selectableField in @[self.documentSizeLabel, self.colorLabel, self.fontLabel, self.frameLabel]) {
+        [selectableField setSelectable:YES];
+        selectableField.stringValue = @"";
+    }
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    self.documentSizeLabel.stringValue = [NSString stringWithFormat:@"%dx%d", self.psd.fmPSD.width, self.psd.fmPSD.height];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectionChanged:) name:NSOutlineViewSelectionDidChangeNotification object:self.outlineView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scaleChanged) name:NSControlTextDidChangeNotification object:self.scaleField];
+}
+
+- (void)selectionChanged:(NSNotification *)notification {
+    id item = [self.outlineView itemAtRow:[self.outlineView selectedRow]];
+    PSHTextPart *textPart = nil;
+    PSHPSDLayer *layer = nil;
+    if ([item isKindOfClass:[PSHTextPart class]]) {
+        textPart = item;
+        layer = textPart.layer;
+    } else {
+        layer = item;
+        if ([layer.textParts count] == 1) {
+            textPart = layer.textParts[0];
+        }
+    }
+    if (textPart) {
+        self.colorLabel.stringValue = @"";
+        self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];;
+        NSLog(@"style sheet %@", textPart.styleSheet);
+    } else {
+        for (NSTextField *layerField in @[self.colorLabel, self.fontLabel]) {
+            layerField.stringValue = @"";
+        }
+        
+    }
+    if (layer) {
+        CGRect frame = layer.fmPSDLayer.frame;
+        self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %f y:%f width:%f height: %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height];
+        self.imageView.image = [[NSImage alloc] initWithCGImage:[layer.fmPSDLayer image] size:NSZeroSize];
+    }
+}
+
+- (void)scaleChanged {
+    [self selectionChanged:nil];
+    [self.outlineView reloadData];
+    [self  calculatedScale];
+}
+
+- (float)calculatedScale {
+    NSNumber *value = @1;
+    @try {
+        NSExpression *expression = [NSExpression expressionWithFormat:[NSString stringWithFormat:@"1.0 * %@", self.scaleField.stringValue]];
+        value = [expression expressionValueWithObject:nil context:nil];
+    }
+    @catch (NSException *exception) {
+    }
+    @finally {
+    }
+    
+    return [value floatValue];
 }
 
 #pragma mark - NSOutlineViewDataSource
@@ -97,13 +165,12 @@
         {
             return textPart.textRepresented;
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontName"])
+        else if ([[theColumn identifier] isEqualToString:@"Font"])
         {
-            return textPart.fontName;
+            return [textPart displayFontScaledBy:[self calculatedScale]];
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontSize"])
+        else if ([[theColumn identifier] isEqualToString:@"Color"])
         {
-            return [NSString stringWithFormat:@"%f", textPart.fontSize];
             
         }
     } else {
@@ -116,13 +183,13 @@
         {
             return layer.fmPSDLayer.layerName;
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontName"] && textPart)
+        else if ([[theColumn identifier] isEqualToString:@"Font"] && textPart)
         {
-            return textPart.fontName;
+            return [textPart displayFontScaledBy:[self calculatedScale]];
         }
-        else if ([[theColumn identifier] isEqualToString:@"FontSize"] && textPart)
+        else if ([[theColumn identifier] isEqualToString:@"Color"] && textPart)
         {
-            return [NSString stringWithFormat:@"%f", textPart.fontSize];
+            
             
         }
     }
@@ -137,39 +204,14 @@
  *
  *******************************************************/
 
-//- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
-//{
-//    return YES;
-//}
-//
-//- (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
-//{
-//    return NO;
-//}
-//
-//- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn item:(id)item {
-//    [cell setDrawsBackground:NO];
-//    
-//    if ([item isFileHidden]) [cell setTextColor:[NSColor grayColor]];
-//    else [cell setTextColor:[NSColor whiteColor]];
-//    
-//    if ([[tableColumn identifier] isEqualToString:@"NameColumn"])
-//    {
-//        if ([item isFolder])
-//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)] size:15.0];
-//        else
-//            [cell setImage:[[NSWorkspace sharedWorkspace] iconForFile:item] size:15.0];
-//        
-//        if ([item isFileHidden])
-//        {
-//            [cell setFileHidden:YES];
-//        }
-//        else
-//        {
-//            [cell setFileHidden:NO];
-//        }
-//        
-//    }
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+    return NO;
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+    return YES;
+}
 
 
 @end

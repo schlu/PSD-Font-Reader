@@ -19,4 +19,8 @@
     return NO;
 }
 
+- (NSString *)displayFontScaledBy:(float)scale {
+    return [NSString stringWithFormat:@"%@ %f", self.fontName, self.fontSize*scale];
+}
+
 @end

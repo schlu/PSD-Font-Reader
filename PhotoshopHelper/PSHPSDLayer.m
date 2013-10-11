@@ -133,14 +133,16 @@
                         NSString *partString = [text substringWithRange:NSMakeRange(currentChar, charCount)];
                         currentChar += charCount;
                         PSHTextPart *textPart = [[PSHTextPart alloc] init];
+                        textPart.layer = self;
                         textPart.textRepresented = partString;
                         
                         NSDictionary *styleSheet = parsedTextProperties[@"EngineDict"][@"StyleRun"][@"RunArray"][currentStyle][@"StyleSheet"][@"StyleSheetData"];
                         textPart.fontName = [self fontNames][[styleSheet[@"Font"] intValue]];
                         textPart.fontSize = [styleSheet[@"FontSize"] floatValue];
+                        textPart.styleSheet = styleSheet;
                         
-                        if (currentStyle > 0 && [textPart sameFontAsTextPart:_textParts[currentStyle - 1]]) {
-                            PSHTextPart *lastTextPart = _textParts[currentStyle - 1];
+                        if (currentStyle > 0 && [textPart sameFontAsTextPart:[_textParts lastObject]]) {
+                            PSHTextPart *lastTextPart = [_textParts lastObject];
                             lastTextPart.textRepresented = [lastTextPart.textRepresented stringByAppendingString:textPart.textRepresented];
                         } else {
                             [_textParts addObject:textPart];
