@@ -12,7 +12,7 @@
 #import "FMPSD.h"
 #import "PSHTextPart.h"
 
-@interface PSHOutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate>
+@interface PSHOutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 @property (weak) IBOutlet NSTextField *documentSizeLabel;
 @property (weak) IBOutlet NSTextField *colorLabel;
 @property (weak) IBOutlet NSTextField *fontLabel;
@@ -20,6 +20,9 @@
 @property (weak) IBOutlet NSOutlineView *outlineView;
 @property (weak) IBOutlet NSTextField *frameLabel;
 @property (weak) IBOutlet NSImageView *imageView;
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSScrollView *tableContainer;
+@property (weak) IBOutlet NSScrollView *outlineContainer;
 
 @end
 
@@ -48,11 +51,16 @@
     
     self.documentSizeLabel.stringValue = [NSString stringWithFormat:@"%dx%d", self.psd.fmPSD.width, self.psd.fmPSD.height];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectionChanged:) name:NSOutlineViewSelectionDidChangeNotification object:self.outlineView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(outlineSelectionChanged:) name:NSOutlineViewSelectionDidChangeNotification object:self.outlineView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableSelectionChanged:) name:NSTableViewSelectionDidChangeNotification object:self.tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scaleChanged) name:NSControlTextDidChangeNotification object:self.scaleField];
 }
 
-- (void)selectionChanged:(NSNotification *)notification {
+- (void)tableSelectionChanged:(NSNotification *)notification {
+    [self displayTextPart:[self.psd textParts][[self.tableView selectedRow]]];
+}
+
+- (void)outlineSelectionChanged:(NSNotification *)notification {
     id item = [self.outlineView itemAtRow:[self.outlineView selectedRow]];
     PSHTextPart *textPart = nil;
     PSHPSDLayer *layer = nil;
@@ -66,6 +74,12 @@
         }
     }
     if (textPart) {
+        [self displayTextPart:textPart];
+    }
+}
+
+- (void)displayTextPart:(PSHTextPart *)textPart {
+    if (textPart) {
         NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
                                (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
                                (int) (textPart.color.blueComponent * 0xFF)];
@@ -78,15 +92,13 @@
         }
         
     }
-    if (layer) {
-        CGRect frame = layer.fmPSDLayer.frame;
-        self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %f y:%f width:%f height: %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height];
-        self.imageView.image = [[NSImage alloc] initWithCGImage:[layer.fmPSDLayer image] size:NSZeroSize];
-    }
+    CGRect frame = textPart.layer.fmPSDLayer.frame;
+    self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %f y:%f width:%f height: %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height];
+    self.imageView.image = [[NSImage alloc] initWithCGImage:[textPart.layer.fmPSDLayer image] size:NSZeroSize];
 }
 
 - (void)scaleChanged {
-    [self selectionChanged:nil];
+    [self outlineSelectionChanged:nil];
     [self.outlineView reloadData];
     [self  calculatedScale];
 }
@@ -104,14 +116,42 @@
     
     return [value floatValue];
 }
+- (IBAction)segmentChanged:(id)sender {
+    NSSegmentedControl *segmentedControl = sender;
+    if (segmentedControl.selectedSegment == 0) {
+        [self.tableContainer setHidden:NO];
+        [self.outlineContainer setHidden:YES];
+    } else {
+        [self.tableContainer setHidden:YES];
+        [self.outlineContainer setHidden:NO];
+    }
+}
 
-#pragma mark - NSOutlineViewDataSource
+#pragma mark - NSTableViewDelegate AND NSTableViewDataSource
 
-/*******************************************************
- *
- * OUTLINE-VIEW DATASOURCE
- *
- *******************************************************/
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [[self.psd textParts] count];
+}
+
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    PSHTextPart *textPart = [self.psd textParts][row];
+    
+    if ([[tableColumn identifier] isEqualToString:@"Text"]) {
+        return textPart.textRepresented;
+    } else if ([[tableColumn identifier] isEqualToString:@"Font"]) {
+        return [textPart displayFontScaledBy:[self calculatedScale]];
+    } else if ([[tableColumn identifier] isEqualToString:@"Color"]) {
+        NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
+                               (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
+                               (int) (textPart.color.blueComponent * 0xFF)];
+        return hexString;
+    }
+    
+    return nil;
+}
+
+#pragma mark - NSOutlineViewDataSource AND NSOutlineViewDelegate
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
@@ -161,20 +201,13 @@
 }
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)theColumn byItem:(id)item
-{   
+{
+    PSHTextPart *textPart = nil;
     if ([item isKindOfClass:[PSHTextPart class]]) {
-        PSHTextPart *textPart = item;
+        textPart = item;
         if ([[theColumn identifier] isEqualToString:@"LayerName"])
         {
             return textPart.textRepresented;
-        }
-        else if ([[theColumn identifier] isEqualToString:@"Font"])
-        {
-            return [textPart displayFontScaledBy:[self calculatedScale]];
-        }
-        else if ([[theColumn identifier] isEqualToString:@"Color"])
-        {
-            
         }
     } else {
         PSHPSDLayer *layer = item;
@@ -186,26 +219,23 @@
         {
             return layer.fmPSDLayer.layerName;
         }
-        else if ([[theColumn identifier] isEqualToString:@"Font"] && textPart)
-        {
-            return [textPart displayFontScaledBy:[self calculatedScale]];
-        }
-        else if ([[theColumn identifier] isEqualToString:@"Color"] && textPart)
-        {
-            
-            
-        }
+    }
+    
+    if ([[theColumn identifier] isEqualToString:@"Font"])
+    {
+        return [textPart displayFontScaledBy:[self calculatedScale]];
+    }
+    else if ([[theColumn identifier] isEqualToString:@"Color"])
+    {
+        NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
+                               (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
+                               (int) (textPart.color.blueComponent * 0xFF)];
+        return hexString;
     }
     
     // Never reaches here
     return nil;
 }
-
-/*******************************************************
- *
- * OUTLINE-VIEW DELEGATE
- *
- *******************************************************/
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView shouldEditTableColumn:(NSTableColumn *)tableColumn item:(id)item {
     return NO;

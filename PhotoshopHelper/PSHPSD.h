@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) FMPSD *fmPSD;
 @property (nonatomic, strong) PSHPSDLayer *rootLayer;
+@property (nonatomic, strong) NSArray *textParts;
 
 + (PSHPSD *)psdWithFMPSD:(FMPSD *)fmPSD;
 

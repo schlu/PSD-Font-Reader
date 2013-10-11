@@ -9,6 +9,7 @@
 #import "PSHPSD.h"
 #import "FMPSD.h"
 #import "PSHPSDLayer.h"
+#import "PSHTextPart.h"
 
 @implementation PSHPSD
 
@@ -17,6 +18,17 @@
     psd.fmPSD = fmPSD;
     psd.rootLayer = [PSHPSDLayer psdLayerWithFMPSDLayer:fmPSD.baseLayerGroup psd:psd parent:nil];
     return psd;
+}
+
+- (NSArray *)textParts {
+    if (!_textParts) {
+        NSMutableArray *recursiveParts = [self.rootLayer recursiveTextParts];
+        [recursiveParts sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"textRepresented" ascending:YES]]];
+        _textParts = recursiveParts;
+        
+    }
+    
+    return _textParts;
 }
 
 @end

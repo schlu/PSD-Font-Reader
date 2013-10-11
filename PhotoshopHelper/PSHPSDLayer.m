@@ -164,4 +164,16 @@
     return _textParts;
 }
 
+- (NSMutableArray *)recursiveTextParts {
+    NSMutableArray * recursiveTextParts = [NSMutableArray array];
+    if ([self isText]) {
+        return self.textParts;
+    } else {
+        for (PSHPSDLayer *layer in self.children) {
+            [recursiveTextParts addObjectsFromArray:[layer recursiveTextParts]];
+        }
+    }
+    return recursiveTextParts;
+}
+
 @end

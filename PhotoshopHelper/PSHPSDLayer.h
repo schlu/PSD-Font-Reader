@@ -28,5 +28,6 @@
 - (BOOL)isExpandable;
 - (NSInteger)numberOfChildren;
 - (id)childAtIndex:(NSInteger)index;
+- (NSMutableArray *)recursiveTextParts;
 
 @end
