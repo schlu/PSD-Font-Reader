@@ -139,6 +139,12 @@
                         NSDictionary *styleSheet = parsedTextProperties[@"EngineDict"][@"StyleRun"][@"RunArray"][currentStyle][@"StyleSheet"][@"StyleSheetData"];
                         textPart.fontName = [self fontNames][[styleSheet[@"Font"] intValue]];
                         textPart.fontSize = [styleSheet[@"FontSize"] floatValue];
+                        
+                        NSArray *colorParts = [styleSheet[@"FillColor"][@"Values"] componentsSeparatedByString:@" "];
+                        if ([colorParts count] == 6) {
+                            textPart.color = [NSColor colorWithCalibratedRed:[colorParts[2] floatValue] green:[colorParts[3] floatValue] blue:[colorParts[4] floatValue] alpha:[colorParts[1] floatValue]];
+                        }
+                        
                         textPart.styleSheet = styleSheet;
                         
                         if (currentStyle > 0 && [textPart sameFontAsTextPart:[_textParts lastObject]]) {

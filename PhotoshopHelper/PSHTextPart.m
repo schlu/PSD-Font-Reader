@@ -9,7 +9,7 @@
 #import "PSHTextPart.h"
 
 @implementation PSHTextPart
-
+ 
 - (BOOL)sameFontAsTextPart:(PSHTextPart *)textPart {
     if ([self.fontName isEqualToString:textPart.fontName]) {
         if (self.fontSize - textPart.fontSize < 0.01f) {

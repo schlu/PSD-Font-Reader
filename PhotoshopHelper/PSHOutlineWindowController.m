@@ -66,7 +66,10 @@
         }
     }
     if (textPart) {
-        self.colorLabel.stringValue = @"";
+        NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
+                               (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
+                               (int) (textPart.color.blueComponent * 0xFF)];
+        self.colorLabel.stringValue = hexString;
         self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];;
         NSLog(@"style sheet %@", textPart.styleSheet);
     } else {

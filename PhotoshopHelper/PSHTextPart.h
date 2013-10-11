@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *textRepresented;
 @property (nonatomic, weak) PSHPSDLayer *layer;
 @property (nonatomic, strong) NSDictionary *styleSheet;
+@property (nonatomic, strong) NSColor *color;
 
 - (NSString *)displayFontScaledBy:(float)scale;
 
