@@ -23,6 +23,7 @@
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSScrollView *tableContainer;
 @property (weak) IBOutlet NSScrollView *outlineContainer;
+@property (weak) IBOutlet NSTextField *layerNameLabel;
 
 @end
 
@@ -50,6 +51,7 @@
     }
     
     self.documentSizeLabel.stringValue = [NSString stringWithFormat:@"%dx%d", self.psd.fmPSD.width, self.psd.fmPSD.height];
+    [self.layerNameLabel.cell setLineBreakMode:NSLineBreakByTruncatingHead];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(outlineSelectionChanged:) name:NSOutlineViewSelectionDidChangeNotification object:self.outlineView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableSelectionChanged:) name:NSTableViewSelectionDidChangeNotification object:self.tableView];
@@ -89,7 +91,15 @@
                                (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
                                (int) (textPart.color.blueComponent * 0xFF)];
         self.colorLabel.stringValue = hexString;
-        self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];;
+        self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];
+        NSMutableArray *layerParts = [NSMutableArray array];
+        PSHPSDLayer *currentLayer = textPart.layer;
+        [layerParts addObject:currentLayer.fmPSDLayer.layerName];
+        while ((currentLayer = currentLayer.parent)) {
+            [layerParts insertObject:currentLayer.fmPSDLayer.layerName atIndex:0];
+        }
+        [layerParts removeObjectAtIndex:0];
+        self.layerNameLabel.stringValue = [layerParts componentsJoinedByString:@" > "];
         [self displayPSDLayer:textPart.layer];
     }
 }

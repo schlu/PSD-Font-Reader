@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
@@ -12,6 +12,7 @@
                 <outlet property="fontLabel" destination="NST-bo-esy" id="SSr-5P-wd7"/>
                 <outlet property="frameLabel" destination="i5v-Gr-ach" id="6HW-8P-unR"/>
                 <outlet property="imageView" destination="HO6-IR-JfJ" id="k1u-0R-jfV"/>
+                <outlet property="layerNameLabel" destination="XT2-h9-zPX" id="uvg-fD-aEV"/>
                 <outlet property="outlineContainer" destination="G4F-6Y-iHE" id="byh-ZP-Zez"/>
                 <outlet property="outlineView" destination="4XK-51-moJ" id="eNV-fG-FU8"/>
                 <outlet property="scaleField" destination="3iC-6c-h6c" id="iqu-TL-UjZ"/>
@@ -40,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HO6-IR-JfJ">
-                                        <rect key="frame" x="20" y="106" width="430" height="646"/>
+                                        <rect key="frame" x="20" y="154" width="430" height="598"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="h61-Fz-b8j"/>
                                     </imageView>
@@ -94,6 +95,24 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="0aj-wq-gzQ">
                                             <font key="font" size="14" name="HelveticaNeue"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="XT2-h9-zPX">
+                                        <rect key="frame" x="76" y="106" width="377" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="sOp-n9-8nq">
+                                            <font key="font" size="14" name="HelveticaNeue"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IDV-9K-iPX">
+                                        <rect key="frame" x="17" y="106" width="57" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Layer:" id="R7k-my-ehJ">
+                                            <font key="font" size="14" name="HelveticaNeue-Bold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -259,7 +278,7 @@
                                             <rect key="frame" x="1" y="666" width="462" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" id="WcA-Rd-ACV">
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="WcA-Rd-ACV">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
