@@ -225,7 +225,6 @@
         }
     } else {
         PSHPSDLayer *layer = item;
-        PSHTextPart *textPart = nil;
         if ([layer.textParts count] == 1) {
             textPart = layer.textParts[0];
         }
@@ -235,7 +234,7 @@
         }
     }
     
-    if ([[theColumn identifier] isEqualToString:@"Font"])
+    if ([[theColumn identifier] isEqualToString:@"Font"] && textPart)
     {
         return [textPart displayFontScaledBy:[self calculatedScale]];
     }
