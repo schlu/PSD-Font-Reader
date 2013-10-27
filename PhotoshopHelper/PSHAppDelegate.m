@@ -10,8 +10,11 @@
 #import "FMPSD.h"
 #import "PSHDropView.h"
 
-@interface PSHAppDelegate ()
+@interface PSHAppDelegate () <PSHDropViewDelegate>
+
 @property (weak) IBOutlet PSHDropView *dropView;
+@property (weak) IBOutlet NSProgressIndicator *activityIndicator;
+@property (weak) IBOutlet NSButton *choosePSDButton;
 
 @end
 
@@ -19,7 +22,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.dropView.delegate = self;
 }
 
 - (IBAction)pickFolderAction:(id)sender {
@@ -31,14 +34,24 @@
     [panel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             for (NSURL *fileURL in [panel URLs]) {
-                dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * .1);
-                dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-                    [self.dropView processPsd:fileURL];
-                });
-                
+                [self.dropView processPsd:fileURL];
             }
         }
     }];
+}
+
+#pragma mark - PSHDropViewDelegate
+
+- (void)dropViewStartedProcessing:(PSHDropView *)dropView {
+    [self.activityIndicator startAnimation:nil];
+    [self.choosePSDButton setHidden:YES];
+}
+
+- (void)dropViewFinishedProcessing:(PSHDropView *)dropView {
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        [self.activityIndicator stopAnimation:nil];
+        [self.choosePSDButton setHidden:NO];
+    });
 }
 
 @end

@@ -35,16 +35,21 @@
 }
 
 - (void)processPsd:(NSURL *)fileUrl {
-    NSError *err;
-    FMPSD *psd = [FMPSD imageWithContetsOfURL:fileUrl error:&err];
-    if (!psd) {
-        NSLog(@"Error loading PSD: %@", err);
-    }
-    
-    PSHOutlineWindowController *windowController = [[PSHOutlineWindowController alloc] initWithWindowNibName:@"PSHOutlineWindowController"];
-    [self.windowControllers addObject:windowController];
-    windowController.psd = [PSHPSD psdWithFMPSD:psd];
-    [windowController showWindow:self];
+    [self.delegate dropViewStartedProcessing:self];
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * .1);
+    dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+        NSError *err;
+        FMPSD *psd = [FMPSD imageWithContetsOfURL:fileUrl error:&err];
+        if (!psd) {
+            NSLog(@"Error loading PSD: %@", err);
+        }
+        
+        PSHOutlineWindowController *windowController = [[PSHOutlineWindowController alloc] initWithWindowNibName:@"PSHOutlineWindowController"];
+        [self.windowControllers addObject:windowController];
+        windowController.psd = [PSHPSD psdWithFMPSD:psd];
+        [windowController showWindow:self];
+        [self.delegate dropViewFinishedProcessing:self];
+    });
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {

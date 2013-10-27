@@ -75,6 +75,11 @@
     }
     if (textPart) {
         [self displayTextPart:textPart];
+    } else {
+        for (NSTextField *layerField in @[self.colorLabel, self.fontLabel]) {
+            layerField.stringValue = @"";
+        }
+        [self displayPSDLayer:layer];
     }
 }
 
@@ -85,16 +90,15 @@
                                (int) (textPart.color.blueComponent * 0xFF)];
         self.colorLabel.stringValue = hexString;
         self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];;
-        NSLog(@"style sheet %@", textPart.styleSheet);
-    } else {
-        for (NSTextField *layerField in @[self.colorLabel, self.fontLabel]) {
-            layerField.stringValue = @"";
-        }
-        
+        [self displayPSDLayer:textPart.layer];
     }
-    CGRect frame = textPart.layer.fmPSDLayer.frame;
-    self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %f y:%f width:%f height: %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height];
-    self.imageView.image = [[NSImage alloc] initWithCGImage:[textPart.layer.fmPSDLayer image] size:NSZeroSize];
+}
+
+- (void)displayPSDLayer:(PSHPSDLayer *)layer {
+    CGRect frame = layer.fmPSDLayer.frame;
+    self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %d y:%d width:%d height: %d", (int)frame.origin.x, (int)frame.origin.y, (int)frame.size.width, (int)frame.size.height];
+    
+    self.imageView.image = [[NSImage alloc] initWithCGImage:[layer.fmPSDLayer image] size:NSZeroSize];
 }
 
 - (void)scaleChanged {
