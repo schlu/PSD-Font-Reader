@@ -216,6 +216,7 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)theColumn byItem:(id)item
 {
+    NSLog(@"[theColumn identifier] %@", [theColumn identifier]);
     PSHTextPart *textPart = nil;
     if ([item isKindOfClass:[PSHTextPart class]]) {
         textPart = item;
@@ -238,7 +239,7 @@
     {
         return [textPart displayFontScaledBy:[self calculatedScale]];
     }
-    else if ([[theColumn identifier] isEqualToString:@"Color"])
+    else if ([[theColumn identifier] isEqualToString:@"Color"] && textPart)
     {
         NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
                                (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),

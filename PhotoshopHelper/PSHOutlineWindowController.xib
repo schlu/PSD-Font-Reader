@@ -145,7 +145,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="v10-CW-pLT" indentationPerLevel="16" outlineTableColumn="qHO-HH-aml" id="4XK-51-moJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="505" height="641"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="462" height="641"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,7 +164,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="Font" width="320" minWidth="40" maxWidth="1000" id="nVf-kz-r4s">
+                                                        <tableColumn identifier="Font" width="150" minWidth="40" maxWidth="1000" id="nVf-kz-r4s">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Font">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -177,7 +177,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="x" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="jVt-jE-qYC">
+                                                        <tableColumn identifier="Color" width="100" minWidth="10" maxWidth="3.4028234663852886e+38" id="jVt-jE-qYC">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Color">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -199,7 +199,7 @@
                                             </subviews>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" verticalHuggingPriority="750" id="n2H-Mf-xhh">
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="n2H-Mf-xhh">
                                             <rect key="frame" x="1" y="642" width="462" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -208,7 +208,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <tableHeaderView key="headerView" id="v10-CW-pLT">
-                                            <rect key="frame" x="0.0" y="0.0" width="505" height="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="462" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
@@ -239,7 +239,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
-                                                        <tableColumn identifier="Font" width="200" minWidth="40" maxWidth="1000" id="bTb-05-nlA">
+                                                        <tableColumn identifier="Font" width="150" minWidth="40" maxWidth="1000" id="bTb-05-nlA">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Font">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>

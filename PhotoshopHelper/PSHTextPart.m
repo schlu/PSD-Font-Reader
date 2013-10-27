@@ -20,7 +20,7 @@
 }
 
 - (NSString *)displayFontScaledBy:(float)scale {
-    return [NSString stringWithFormat:@"%@ %f", self.fontName, self.fontSize*scale];
+    return [NSString stringWithFormat:@"%@ %dpt", self.fontName, (int)roundf(self.fontSize*scale)];
 }
 
 @end
