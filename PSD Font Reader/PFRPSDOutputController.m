@@ -106,7 +106,7 @@
 
 - (void)displayPSDLayer:(PFRPSDLayer *)layer {
     CGRect frame = layer.fmPSDLayer.frame;
-    self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %d y:%d width:%d height: %d", (int)frame.origin.x, (int)frame.origin.y, (int)frame.size.width, (int)frame.size.height];
+    self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %d y: %d width: %d height: %d", (int)frame.origin.x, (int)layer.fmPSDLayer.top, (int)frame.size.width, (int)frame.size.height];
     
     self.imageView.image = [[NSImage alloc] initWithCGImage:[layer.fmPSDLayer image] size:NSZeroSize];
 }
