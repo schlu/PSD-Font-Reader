@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PhotoshopHelper.xcodeproj">
+      location = "self:PSD Font Reader.xcodeproj">
    </FileRef>
 </Workspace>
