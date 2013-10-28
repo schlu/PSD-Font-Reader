@@ -12,7 +12,7 @@ Open a PSD file and browse the fonts in a table view or in an outline view, base
 
 I am an iOS programmer, not a mac programmer. I use this application to get font information out of psd files that I get from designers. This code should not be considered production quality, it is an internal devtool I use in my workflow. 
 
-At this time layer styles are not supported, so color information maybe wrong.
+At this time layer styles are not supported, so color information may be wrong.
 
 ## Credit
 
