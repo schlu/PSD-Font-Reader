@@ -1,26 +1,26 @@
 //
-//  PSHPSDLayer.m
+//  PFRPSDLayer.m
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/5/13.
 //  Copyright (c) 2013 2 Limes. All rights reserved.
 //
 
-#import "PSHPSDLayer.h"
+#import "PFRPSDLayer.h"
 #import "FMPSD.h"
 #import "FMPSDTextEngineParser.h"
-#import "PSHTextPart.h"
+#import "PFRTextPart.h"
 
-@implementation PSHPSDLayer
+@implementation PFRPSDLayer
 
-+ (PSHPSDLayer *)psdLayerWithFMPSDLayer:(FMPSDLayer *)fmPSDLayer psd:(PSHPSD *)psd parent:(PSHPSDLayer *)parent {
-    PSHPSDLayer *psdLayer = [[PSHPSDLayer alloc] init];
++ (PFRPSDLayer *)psdLayerWithFMPSDLayer:(FMPSDLayer *)fmPSDLayer psd:(PFRPSD *)psd parent:(PFRPSDLayer *)parent {
+    PFRPSDLayer *psdLayer = [[PFRPSDLayer alloc] init];
     psdLayer.psd = psd;
     psdLayer.parent = parent;
     psdLayer.fmPSDLayer = fmPSDLayer;
     psdLayer.children = [NSMutableArray array];
     for (FMPSDLayer *layer in fmPSDLayer.layers) {
-        PSHPSDLayer *child = [PSHPSDLayer psdLayerWithFMPSDLayer:layer psd:psd parent:psdLayer];
+        PFRPSDLayer *child = [PFRPSDLayer psdLayerWithFMPSDLayer:layer psd:psd parent:psdLayer];
         if (layer.isText) {
             child.hasTextDecendant = NO;
             [child markParentsForText];
@@ -31,7 +31,7 @@
 }
 
 - (void)markParentsForText {
-    for (PSHPSDLayer *ancestor in [self ancestors]) {
+    for (PFRPSDLayer *ancestor in [self ancestors]) {
         ancestor.hasTextDecendant = YES;
     }
 }
@@ -39,7 +39,7 @@
 - (NSMutableArray *)childrenToDisplay {
     if (!_childrenToDisplay) {
         _childrenToDisplay = [NSMutableArray array];
-        for (PSHPSDLayer *child in self.children) {
+        for (PFRPSDLayer *child in self.children) {
             if (child.hasTextDecendant || child.fmPSDLayer.isText) {
                 [self.childrenToDisplay addObject:child];
             }
@@ -51,7 +51,7 @@
 
 - (NSMutableArray *)ancestors {
     NSMutableArray *ancestors = [NSMutableArray array];
-    PSHPSDLayer *up = self.parent;
+    PFRPSDLayer *up = self.parent;
     while (up) {
         [ancestors addObject:up];
         up = up.parent;
@@ -132,7 +132,7 @@
                         }
                         NSString *partString = [text substringWithRange:NSMakeRange(currentChar, charCount)];
                         currentChar += charCount;
-                        PSHTextPart *textPart = [[PSHTextPart alloc] init];
+                        PFRTextPart *textPart = [[PFRTextPart alloc] init];
                         textPart.layer = self;
                         textPart.textRepresented = partString;
                         
@@ -148,7 +148,7 @@
                         textPart.styleSheet = styleSheet;
                         
                         if (currentStyle > 0 && [textPart sameFontAsTextPart:[_textParts lastObject]]) {
-                            PSHTextPart *lastTextPart = [_textParts lastObject];
+                            PFRTextPart *lastTextPart = [_textParts lastObject];
                             lastTextPart.textRepresented = [lastTextPart.textRepresented stringByAppendingString:textPart.textRepresented];
                         } else {
                             [_textParts addObject:textPart];
@@ -169,7 +169,7 @@
     if ([self isText]) {
         return self.textParts;
     } else {
-        for (PSHPSDLayer *layer in self.children) {
+        for (PFRPSDLayer *layer in self.children) {
             [recursiveTextParts addObjectsFromArray:[layer recursiveTextParts]];
         }
     }

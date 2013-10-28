@@ -1,23 +1,23 @@
 //
-//  PSHDropView.m
+//  PFRDropView.m
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/4/13.
 //  Copyright (c) 2013 2 Limes. All rights reserved.
 //
 
-#import "PSHDropView.h"
+#import "PFRDropView.h"
 #import "FMPSD.h"
-#import "PSHOutlineWindowController.h"
-#import "PSHPSD.h"
+#import "PFROutlineWindowController.h"
+#import "PFRPSD.h"
 
-@interface PSHDropView () <NSDraggingDestination>
+@interface PFRDropView () <NSDraggingDestination>
 
 @property (nonatomic, strong) NSMutableArray *windowControllers;
 
 @end
 
-@implementation PSHDropView
+@implementation PFRDropView
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -44,9 +44,9 @@
             NSLog(@"Error loading PSD: %@", err);
         }
         
-        PSHOutlineWindowController *windowController = [[PSHOutlineWindowController alloc] initWithWindowNibName:@"PSHOutlineWindowController"];
+        PFROutlineWindowController *windowController = [[PFROutlineWindowController alloc] initWithWindowNibName:@"PFROutlineWindowController"];
         [self.windowControllers addObject:windowController];
-        windowController.psd = [PSHPSD psdWithFMPSD:psd];
+        windowController.psd = [PFRPSD psdWithFMPSD:psd];
         [windowController showWindow:self];
         [self.delegate dropViewFinishedProcessing:self];
     });

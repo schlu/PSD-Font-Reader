@@ -1,5 +1,5 @@
 //
-//  PSHTextPart.h
+//  PFRTextPart.h
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/5/13.
@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class PSHPSDLayer;
+@class PFRPSDLayer;
 
-@interface PSHTextPart : NSObject
+@interface PFRTextPart : NSObject
 
 @property (nonatomic, strong) NSString *fontName;
 @property (nonatomic, assign) float fontSize;
 @property (nonatomic, strong) NSString *textRepresented;
-@property (nonatomic, weak) PSHPSDLayer *layer;
+@property (nonatomic, weak) PFRPSDLayer *layer;
 @property (nonatomic, strong) NSDictionary *styleSheet;
 @property (nonatomic, strong) NSColor *color;
 
 - (NSString *)displayFontScaledBy:(float)scale;
 
-- (BOOL)sameFontAsTextPart:(PSHTextPart *)textPart;
+- (BOOL)sameFontAsTextPart:(PFRTextPart *)textPart;
 
 @end

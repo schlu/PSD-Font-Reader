@@ -154,7 +154,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="195" height="135"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-JD-T4W" customClass="PSHDropView">
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-JD-T4W" customClass="PFRDropView">
                         <rect key="frame" x="0.0" y="0.0" width="195" height="135"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -178,7 +178,7 @@
                 </subviews>
             </view>
         </window>
-        <customObject id="494" customClass="PSHAppDelegate">
+        <customObject id="494" customClass="PFRAppDelegate">
             <connections>
                 <outlet property="activityIndicator" destination="edm-h8-rNM" id="mkE-zh-Dkk"/>
                 <outlet property="choosePSDButton" destination="hPU-Bb-mcm" id="fnX-1p-aTr"/>

@@ -1,24 +1,24 @@
 //
-//  PSHAppDelegate.m
+//  PFRAppDelegate.m
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/3/13.
 //  Copyright (c) 2013 2 Limes. All rights reserved.
 //
 
-#import "PSHAppDelegate.h"
+#import "PFRAppDelegate.h"
 #import "FMPSD.h"
-#import "PSHDropView.h"
+#import "PFRDropView.h"
 
-@interface PSHAppDelegate () <PSHDropViewDelegate>
+@interface PFRAppDelegate () <PFRDropViewDelegate>
 
-@property (weak) IBOutlet PSHDropView *dropView;
+@property (weak) IBOutlet PFRDropView *dropView;
 @property (weak) IBOutlet NSProgressIndicator *activityIndicator;
 @property (weak) IBOutlet NSButton *choosePSDButton;
 
 @end
 
-@implementation PSHAppDelegate
+@implementation PFRAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -40,14 +40,14 @@
     }];
 }
 
-#pragma mark - PSHDropViewDelegate
+#pragma mark - PFRDropViewDelegate
 
-- (void)dropViewStartedProcessing:(PSHDropView *)dropView {
+- (void)dropViewStartedProcessing:(PFRDropView *)dropView {
     [self.activityIndicator startAnimation:nil];
     [self.choosePSDButton setHidden:YES];
 }
 
-- (void)dropViewFinishedProcessing:(PSHDropView *)dropView {
+- (void)dropViewFinishedProcessing:(PFRDropView *)dropView {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         [self.activityIndicator stopAnimation:nil];
         [self.choosePSDButton setHidden:NO];

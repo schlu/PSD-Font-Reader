@@ -1,5 +1,5 @@
 //
-//  PSHPSDLayer.h
+//  PFRPSDLayer.h
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/5/13.
@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @class FMPSDLayer;
-@class PSHPSD;
+@class PFRPSD;
 
-@interface PSHPSDLayer : NSObject
+@interface PFRPSDLayer : NSObject
 
-@property (nonatomic, weak) PSHPSD *psd;
-@property (nonatomic, weak) PSHPSDLayer *parent;
+@property (nonatomic, weak) PFRPSD *psd;
+@property (nonatomic, weak) PFRPSDLayer *parent;
 @property (nonatomic, strong) FMPSDLayer *fmPSDLayer;
 @property (nonatomic, strong) NSMutableArray *children;
 @property (nonatomic, strong) NSMutableArray *childrenToDisplay;
 @property (nonatomic, assign) BOOL hasTextDecendant;
 @property (nonatomic, strong) NSMutableArray *textParts;
 
-+ (PSHPSDLayer *)psdLayerWithFMPSDLayer:(FMPSDLayer *)fmPSDLayer psd:(PSHPSD *)psd parent:(PSHPSDLayer *)parent;
++ (PFRPSDLayer *)psdLayerWithFMPSDLayer:(FMPSDLayer *)fmPSDLayer psd:(PFRPSD *)psd parent:(PFRPSDLayer *)parent;
 
 - (BOOL)isText;
 - (NSArray *)fontNames;

@@ -1,5 +1,5 @@
 //
-//  PSHAppDelegate.h
+//  PFRAppDelegate.h
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/3/13.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PSHAppDelegate : NSObject <NSApplicationDelegate>
+@interface PFRAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

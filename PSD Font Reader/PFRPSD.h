@@ -1,5 +1,5 @@
 //
-//  PSHPSD.h
+//  PFRPSD.h
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/5/13.
@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class FMPSD;
-@class PSHPSDLayer;
+@class PFRPSDLayer;
 
-@interface PSHPSD : NSObject
+@interface PFRPSD : NSObject
 
 @property (nonatomic, strong) FMPSD *fmPSD;
-@property (nonatomic, strong) PSHPSDLayer *rootLayer;
+@property (nonatomic, strong) PFRPSDLayer *rootLayer;
 @property (nonatomic, strong) NSArray *textParts;
 
-+ (PSHPSD *)psdWithFMPSD:(FMPSD *)fmPSD;
++ (PFRPSD *)psdWithFMPSD:(FMPSD *)fmPSD;
 
 @end

@@ -1,18 +1,18 @@
 //
-//  PSHOulineWindowController.m
+//  PFROulineWindowController.m
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/4/13.
 //  Copyright (c) 2013 2 Limes. All rights reserved.
 //
 
-#import "PSHOutlineWindowController.h"
-#import "PSHPSD.h"
-#import "PSHPSDLayer.h"
+#import "PFROutlineWindowController.h"
+#import "PFRPSD.h"
+#import "PFRPSDLayer.h"
 #import "FMPSD.h"
-#import "PSHTextPart.h"
+#import "PFRTextPart.h"
 
-@interface PSHOutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface PFROutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 @property (weak) IBOutlet NSTextField *documentSizeLabel;
 @property (weak) IBOutlet NSTextField *colorLabel;
 @property (weak) IBOutlet NSTextField *fontLabel;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation PSHOutlineWindowController
+@implementation PFROutlineWindowController
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -64,9 +64,9 @@
 
 - (void)outlineSelectionChanged:(NSNotification *)notification {
     id item = [self.outlineView itemAtRow:[self.outlineView selectedRow]];
-    PSHTextPart *textPart = nil;
-    PSHPSDLayer *layer = nil;
-    if ([item isKindOfClass:[PSHTextPart class]]) {
+    PFRTextPart *textPart = nil;
+    PFRPSDLayer *layer = nil;
+    if ([item isKindOfClass:[PFRTextPart class]]) {
         textPart = item;
         layer = textPart.layer;
     } else {
@@ -85,7 +85,7 @@
     }
 }
 
-- (void)displayTextPart:(PSHTextPart *)textPart {
+- (void)displayTextPart:(PFRTextPart *)textPart {
     if (textPart) {
         NSString* hexString = [NSString stringWithFormat:@"#%02X%02X%02X",
                                (int) (textPart.color.redComponent * 0xFF), (int) (textPart.color.greenComponent * 0xFF),
@@ -93,7 +93,7 @@
         self.colorLabel.stringValue = hexString;
         self.fontLabel.stringValue = [textPart displayFontScaledBy:[self calculatedScale]];
         NSMutableArray *layerParts = [NSMutableArray array];
-        PSHPSDLayer *currentLayer = textPart.layer;
+        PFRPSDLayer *currentLayer = textPart.layer;
         [layerParts addObject:currentLayer.fmPSDLayer.layerName];
         while ((currentLayer = currentLayer.parent)) {
             [layerParts insertObject:currentLayer.fmPSDLayer.layerName atIndex:0];
@@ -104,7 +104,7 @@
     }
 }
 
-- (void)displayPSDLayer:(PSHPSDLayer *)layer {
+- (void)displayPSDLayer:(PFRPSDLayer *)layer {
     CGRect frame = layer.fmPSDLayer.frame;
     self.frameLabel.stringValue = [NSString stringWithFormat:@"x: %d y:%d width:%d height: %d", (int)frame.origin.x, (int)frame.origin.y, (int)frame.size.width, (int)frame.size.height];
     
@@ -149,7 +149,7 @@
 
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    PSHTextPart *textPart = [self.psd textParts][row];
+    PFRTextPart *textPart = [self.psd textParts][row];
     
     if ([[tableColumn identifier] isEqualToString:@"Text"]) {
         return textPart.textRepresented;
@@ -169,20 +169,20 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    if ([item isKindOfClass:[PSHTextPart class]]) {
+    if ([item isKindOfClass:[PFRTextPart class]]) {
         return NO;
     } else {
-        PSHPSDLayer *layer = item;
+        PFRPSDLayer *layer = item;
         return [layer isExpandable];
     }
 }
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
-    if ([item isKindOfClass:[PSHTextPart class]]) {
+    if ([item isKindOfClass:[PFRTextPart class]]) {
         return 0;
     } else {
-        PSHPSDLayer *layer = item;
+        PFRPSDLayer *layer = item;
         if (layer==nil)
         {
             return [self.psd.rootLayer numberOfChildren];
@@ -196,8 +196,8 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
-    if (![item isKindOfClass:[PSHTextPart class]]) {
-        PSHPSDLayer *layer = item;
+    if (![item isKindOfClass:[PFRTextPart class]]) {
+        PFRPSDLayer *layer = item;
         if (item == nil)
         {
             // Root
@@ -217,15 +217,15 @@
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)theColumn byItem:(id)item
 {
     NSLog(@"[theColumn identifier] %@", [theColumn identifier]);
-    PSHTextPart *textPart = nil;
-    if ([item isKindOfClass:[PSHTextPart class]]) {
+    PFRTextPart *textPart = nil;
+    if ([item isKindOfClass:[PFRTextPart class]]) {
         textPart = item;
         if ([[theColumn identifier] isEqualToString:@"LayerName"])
         {
             return textPart.textRepresented;
         }
     } else {
-        PSHPSDLayer *layer = item;
+        PFRPSDLayer *layer = item;
         if ([layer.textParts count] == 1) {
             textPart = layer.textParts[0];
         }

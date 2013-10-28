@@ -1,5 +1,5 @@
 //
-//  PSHOulineWindowController.h
+//  PFROulineWindowController.h
 //  PhotoshopHelper
 //
 //  Created by Nicholas Schlueter on 10/4/13.
@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class PSHPSD;
+@class PFRPSD;
 
-@interface PSHOutlineWindowController : NSWindowController
+@interface PFROutlineWindowController : NSWindowController
 
-@property (nonatomic, strong) PSHPSD *psd;
+@property (nonatomic, strong) PFRPSD *psd;
 
 @end

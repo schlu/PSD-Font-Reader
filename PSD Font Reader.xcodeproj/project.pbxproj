@@ -11,7 +11,7 @@
 		8A33C81D17FE6ADE0082AD47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C81B17FE6ADE0082AD47 /* InfoPlist.strings */; };
 		8A33C81F17FE6ADE0082AD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C81E17FE6ADE0082AD47 /* main.m */; };
 		8A33C82317FE6ADE0082AD47 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82117FE6ADE0082AD47 /* Credits.rtf */; };
-		8A33C82617FE6ADE0082AD47 /* PSHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */; };
+		8A33C82617FE6ADE0082AD47 /* PFRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C82517FE6ADE0082AD47 /* PFRAppDelegate.m */; };
 		8A33C82917FE6ADE0082AD47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82717FE6ADE0082AD47 /* MainMenu.xib */; };
 		8A33C82B17FE6ADE0082AD47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C82A17FE6ADE0082AD47 /* Images.xcassets */; };
 		8A33C83217FE6ADE0082AD47 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C83117FE6ADE0082AD47 /* XCTest.framework */; };
@@ -28,12 +28,12 @@
 		8A33C86317FE6E790082AD47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C81717FE6ADE0082AD47 /* Foundation.framework */; };
 		8A33C86517FE6E7E0082AD47 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C86417FE6E7E0082AD47 /* QuartzCore.framework */; };
 		8A33C86917FE73640082AD47 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C86817FE73640082AD47 /* Accelerate.framework */; };
-		8A33C86C17FF3B0A0082AD47 /* PSHDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86B17FF3B0A0082AD47 /* PSHDropView.m */; };
-		8A33C87117FF5CC10082AD47 /* PSHOutlineWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86F17FF5CC10082AD47 /* PSHOutlineWindowController.m */; };
-		8A33C87217FF5CC10082AD47 /* PSHOutlineWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C87017FF5CC10082AD47 /* PSHOutlineWindowController.xib */; };
-		8A33C876180048570082AD47 /* PSHPSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C875180048570082AD47 /* PSHPSD.m */; };
-		8A33C879180048AB0082AD47 /* PSHPSDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C878180048AB0082AD47 /* PSHPSDLayer.m */; };
-		8A33C87C1800929F0082AD47 /* PSHTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C87B1800929F0082AD47 /* PSHTextPart.m */; };
+		8A33C86C17FF3B0A0082AD47 /* PFRDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */; };
+		8A33C87117FF5CC10082AD47 /* PFROutlineWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */; };
+		8A33C87217FF5CC10082AD47 /* PFROutlineWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */; };
+		8A33C876180048570082AD47 /* PFRPSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C875180048570082AD47 /* PFRPSD.m */; };
+		8A33C879180048AB0082AD47 /* PFRPSDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C878180048AB0082AD47 /* PFRPSDLayer.m */; };
+		8A33C87C1800929F0082AD47 /* PFRTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C87B1800929F0082AD47 /* PFRTextPart.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		8A33C81E17FE6ADE0082AD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A33C82017FE6ADE0082AD47 /* PSD Font Reader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSD Font Reader-Prefix.pch"; sourceTree = "<group>"; };
 		8A33C82217FE6ADE0082AD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8A33C82417FE6ADE0082AD47 /* PSHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSHAppDelegate.h; sourceTree = "<group>"; };
-		8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSHAppDelegate.m; sourceTree = "<group>"; };
+		8A33C82417FE6ADE0082AD47 /* PFRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFRAppDelegate.h; sourceTree = "<group>"; };
+		8A33C82517FE6ADE0082AD47 /* PFRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFRAppDelegate.m; sourceTree = "<group>"; };
 		8A33C82817FE6ADE0082AD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A33C82A17FE6ADE0082AD47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A33C83017FE6ADE0082AD47 /* PSD Font ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PSD Font ReaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,17 +83,17 @@
 		8A33C85717FE6B050082AD47 /* fmpsd-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "fmpsd-Prefix.pch"; sourceTree = "<group>"; };
 		8A33C86417FE6E7E0082AD47 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8A33C86817FE73640082AD47 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		8A33C86A17FF3B0A0082AD47 /* PSHDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHDropView.h; sourceTree = "<group>"; };
-		8A33C86B17FF3B0A0082AD47 /* PSHDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHDropView.m; sourceTree = "<group>"; };
-		8A33C86E17FF5CC10082AD47 /* PSHOutlineWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHOutlineWindowController.h; sourceTree = "<group>"; };
-		8A33C86F17FF5CC10082AD47 /* PSHOutlineWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHOutlineWindowController.m; sourceTree = "<group>"; };
-		8A33C87017FF5CC10082AD47 /* PSHOutlineWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSHOutlineWindowController.xib; sourceTree = "<group>"; };
-		8A33C874180048570082AD47 /* PSHPSD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHPSD.h; sourceTree = "<group>"; };
-		8A33C875180048570082AD47 /* PSHPSD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHPSD.m; sourceTree = "<group>"; };
-		8A33C877180048AB0082AD47 /* PSHPSDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHPSDLayer.h; sourceTree = "<group>"; };
-		8A33C878180048AB0082AD47 /* PSHPSDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHPSDLayer.m; sourceTree = "<group>"; };
-		8A33C87A1800929F0082AD47 /* PSHTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHTextPart.h; sourceTree = "<group>"; };
-		8A33C87B1800929F0082AD47 /* PSHTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHTextPart.m; sourceTree = "<group>"; };
+		8A33C86A17FF3B0A0082AD47 /* PFRDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRDropView.h; sourceTree = "<group>"; };
+		8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRDropView.m; sourceTree = "<group>"; };
+		8A33C86E17FF5CC10082AD47 /* PFROutlineWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFROutlineWindowController.h; sourceTree = "<group>"; };
+		8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFROutlineWindowController.m; sourceTree = "<group>"; };
+		8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFROutlineWindowController.xib; sourceTree = "<group>"; };
+		8A33C874180048570082AD47 /* PFRPSD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRPSD.h; sourceTree = "<group>"; };
+		8A33C875180048570082AD47 /* PFRPSD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRPSD.m; sourceTree = "<group>"; };
+		8A33C877180048AB0082AD47 /* PFRPSDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRPSDLayer.h; sourceTree = "<group>"; };
+		8A33C878180048AB0082AD47 /* PFRPSDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRPSDLayer.m; sourceTree = "<group>"; };
+		8A33C87A1800929F0082AD47 /* PFRTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRTextPart.h; sourceTree = "<group>"; };
+		8A33C87B1800929F0082AD47 /* PFRTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRTextPart.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,16 +166,16 @@
 			isa = PBXGroup;
 			children = (
 				8A33C8731800482E0082AD47 /* Model */,
-				8A33C82417FE6ADE0082AD47 /* PSHAppDelegate.h */,
-				8A33C82517FE6ADE0082AD47 /* PSHAppDelegate.m */,
+				8A33C82417FE6ADE0082AD47 /* PFRAppDelegate.h */,
+				8A33C82517FE6ADE0082AD47 /* PFRAppDelegate.m */,
 				8A33C82717FE6ADE0082AD47 /* MainMenu.xib */,
 				8A33C82A17FE6ADE0082AD47 /* Images.xcassets */,
 				8A33C81917FE6ADE0082AD47 /* Supporting Files */,
-				8A33C86A17FF3B0A0082AD47 /* PSHDropView.h */,
-				8A33C86B17FF3B0A0082AD47 /* PSHDropView.m */,
-				8A33C86E17FF5CC10082AD47 /* PSHOutlineWindowController.h */,
-				8A33C86F17FF5CC10082AD47 /* PSHOutlineWindowController.m */,
-				8A33C87017FF5CC10082AD47 /* PSHOutlineWindowController.xib */,
+				8A33C86A17FF3B0A0082AD47 /* PFRDropView.h */,
+				8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */,
+				8A33C86E17FF5CC10082AD47 /* PFROutlineWindowController.h */,
+				8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */,
+				8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */,
 			);
 			path = "PSD Font Reader";
 			sourceTree = "<group>";
@@ -251,12 +251,12 @@
 		8A33C8731800482E0082AD47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A33C874180048570082AD47 /* PSHPSD.h */,
-				8A33C875180048570082AD47 /* PSHPSD.m */,
-				8A33C877180048AB0082AD47 /* PSHPSDLayer.h */,
-				8A33C878180048AB0082AD47 /* PSHPSDLayer.m */,
-				8A33C87A1800929F0082AD47 /* PSHTextPart.h */,
-				8A33C87B1800929F0082AD47 /* PSHTextPart.m */,
+				8A33C874180048570082AD47 /* PFRPSD.h */,
+				8A33C875180048570082AD47 /* PFRPSD.m */,
+				8A33C877180048AB0082AD47 /* PFRPSDLayer.h */,
+				8A33C878180048AB0082AD47 /* PFRPSDLayer.m */,
+				8A33C87A1800929F0082AD47 /* PFRTextPart.h */,
+				8A33C87B1800929F0082AD47 /* PFRTextPart.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 		8A33C80717FE6ADE0082AD47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PSH;
+				CLASSPREFIX = PFR;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "2 Limes";
 				TargetAttributes = {
@@ -340,7 +340,7 @@
 			files = (
 				8A33C81D17FE6ADE0082AD47 /* InfoPlist.strings in Resources */,
 				8A33C82B17FE6ADE0082AD47 /* Images.xcassets in Resources */,
-				8A33C87217FF5CC10082AD47 /* PSHOutlineWindowController.xib in Resources */,
+				8A33C87217FF5CC10082AD47 /* PFROutlineWindowController.xib in Resources */,
 				8A33C82317FE6ADE0082AD47 /* Credits.rtf in Resources */,
 				8A33C82917FE6ADE0082AD47 /* MainMenu.xib in Resources */,
 			);
@@ -362,19 +362,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A33C85A17FE6B050082AD47 /* FMPSD.m in Sources */,
-				8A33C87C1800929F0082AD47 /* PSHTextPart.m in Sources */,
+				8A33C87C1800929F0082AD47 /* PFRTextPart.m in Sources */,
 				8A33C85C17FE6B050082AD47 /* FMPSDDescriptor.m in Sources */,
-				8A33C82617FE6ADE0082AD47 /* PSHAppDelegate.m in Sources */,
+				8A33C82617FE6ADE0082AD47 /* PFRAppDelegate.m in Sources */,
 				8A33C85E17FE6B050082AD47 /* FMPSDStream.m in Sources */,
 				8A33C86017FE6B050082AD47 /* FMPSDUtils.m in Sources */,
-				8A33C876180048570082AD47 /* PSHPSD.m in Sources */,
-				8A33C87117FF5CC10082AD47 /* PSHOutlineWindowController.m in Sources */,
+				8A33C876180048570082AD47 /* PFRPSD.m in Sources */,
+				8A33C87117FF5CC10082AD47 /* PFROutlineWindowController.m in Sources */,
 				8A33C85F17FE6B050082AD47 /* FMPSDTextEngineParser.m in Sources */,
-				8A33C879180048AB0082AD47 /* PSHPSDLayer.m in Sources */,
+				8A33C879180048AB0082AD47 /* PFRPSDLayer.m in Sources */,
 				8A33C85B17FE6B050082AD47 /* FMPSDCIFilters.m in Sources */,
 				8A33C85D17FE6B050082AD47 /* FMPSDLayer.m in Sources */,
 				8A33C81F17FE6ADE0082AD47 /* main.m in Sources */,
-				8A33C86C17FF3B0A0082AD47 /* PSHDropView.m in Sources */,
+				8A33C86C17FF3B0A0082AD47 /* PFRDropView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
