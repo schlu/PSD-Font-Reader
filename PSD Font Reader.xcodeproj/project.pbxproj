@@ -29,8 +29,8 @@
 		8A33C86517FE6E7E0082AD47 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C86417FE6E7E0082AD47 /* QuartzCore.framework */; };
 		8A33C86917FE73640082AD47 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A33C86817FE73640082AD47 /* Accelerate.framework */; };
 		8A33C86C17FF3B0A0082AD47 /* PFRDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */; };
-		8A33C87117FF5CC10082AD47 /* PFROutlineWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */; };
-		8A33C87217FF5CC10082AD47 /* PFROutlineWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */; };
+		8A33C87117FF5CC10082AD47 /* PFRPSDOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C86F17FF5CC10082AD47 /* PFRPSDOutputController.m */; };
+		8A33C87217FF5CC10082AD47 /* PFRPSDOutputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A33C87017FF5CC10082AD47 /* PFRPSDOutputController.xib */; };
 		8A33C876180048570082AD47 /* PFRPSD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C875180048570082AD47 /* PFRPSD.m */; };
 		8A33C879180048AB0082AD47 /* PFRPSDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C878180048AB0082AD47 /* PFRPSDLayer.m */; };
 		8A33C87C1800929F0082AD47 /* PFRTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A33C87B1800929F0082AD47 /* PFRTextPart.m */; };
@@ -85,9 +85,9 @@
 		8A33C86817FE73640082AD47 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8A33C86A17FF3B0A0082AD47 /* PFRDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRDropView.h; sourceTree = "<group>"; };
 		8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRDropView.m; sourceTree = "<group>"; };
-		8A33C86E17FF5CC10082AD47 /* PFROutlineWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFROutlineWindowController.h; sourceTree = "<group>"; };
-		8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFROutlineWindowController.m; sourceTree = "<group>"; };
-		8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFROutlineWindowController.xib; sourceTree = "<group>"; };
+		8A33C86E17FF5CC10082AD47 /* PFRPSDOutputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRPSDOutputController.h; sourceTree = "<group>"; };
+		8A33C86F17FF5CC10082AD47 /* PFRPSDOutputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRPSDOutputController.m; sourceTree = "<group>"; };
+		8A33C87017FF5CC10082AD47 /* PFRPSDOutputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFRPSDOutputController.xib; sourceTree = "<group>"; };
 		8A33C874180048570082AD47 /* PFRPSD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRPSD.h; sourceTree = "<group>"; };
 		8A33C875180048570082AD47 /* PFRPSD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRPSD.m; sourceTree = "<group>"; };
 		8A33C877180048AB0082AD47 /* PFRPSDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRPSDLayer.h; sourceTree = "<group>"; };
@@ -173,9 +173,9 @@
 				8A33C81917FE6ADE0082AD47 /* Supporting Files */,
 				8A33C86A17FF3B0A0082AD47 /* PFRDropView.h */,
 				8A33C86B17FF3B0A0082AD47 /* PFRDropView.m */,
-				8A33C86E17FF5CC10082AD47 /* PFROutlineWindowController.h */,
-				8A33C86F17FF5CC10082AD47 /* PFROutlineWindowController.m */,
-				8A33C87017FF5CC10082AD47 /* PFROutlineWindowController.xib */,
+				8A33C86E17FF5CC10082AD47 /* PFRPSDOutputController.h */,
+				8A33C86F17FF5CC10082AD47 /* PFRPSDOutputController.m */,
+				8A33C87017FF5CC10082AD47 /* PFRPSDOutputController.xib */,
 			);
 			path = "PSD Font Reader";
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			files = (
 				8A33C81D17FE6ADE0082AD47 /* InfoPlist.strings in Resources */,
 				8A33C82B17FE6ADE0082AD47 /* Images.xcassets in Resources */,
-				8A33C87217FF5CC10082AD47 /* PFROutlineWindowController.xib in Resources */,
+				8A33C87217FF5CC10082AD47 /* PFRPSDOutputController.xib in Resources */,
 				8A33C82317FE6ADE0082AD47 /* Credits.rtf in Resources */,
 				8A33C82917FE6ADE0082AD47 /* MainMenu.xib in Resources */,
 			);
@@ -368,7 +368,7 @@
 				8A33C85E17FE6B050082AD47 /* FMPSDStream.m in Sources */,
 				8A33C86017FE6B050082AD47 /* FMPSDUtils.m in Sources */,
 				8A33C876180048570082AD47 /* PFRPSD.m in Sources */,
-				8A33C87117FF5CC10082AD47 /* PFROutlineWindowController.m in Sources */,
+				8A33C87117FF5CC10082AD47 /* PFRPSDOutputController.m in Sources */,
 				8A33C85F17FE6B050082AD47 /* FMPSDTextEngineParser.m in Sources */,
 				8A33C879180048AB0082AD47 /* PFRPSDLayer.m in Sources */,
 				8A33C85B17FE6B050082AD47 /* FMPSDCIFilters.m in Sources */,

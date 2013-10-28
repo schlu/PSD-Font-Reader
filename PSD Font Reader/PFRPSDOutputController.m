@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 2 Limes. All rights reserved.
 //
 
-#import "PFROutlineWindowController.h"
+#import "PFRPSDOutputController.h"
 #import "PFRPSD.h"
 #import "PFRPSDLayer.h"
 #import "FMPSD.h"
 #import "PFRTextPart.h"
 
-@interface PFROutlineWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface PFRPSDOutputController () <NSOutlineViewDataSource, NSOutlineViewDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate>
 @property (weak) IBOutlet NSTextField *documentSizeLabel;
 @property (weak) IBOutlet NSTextField *colorLabel;
 @property (weak) IBOutlet NSTextField *fontLabel;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation PFROutlineWindowController
+@implementation PFRPSDOutputController
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

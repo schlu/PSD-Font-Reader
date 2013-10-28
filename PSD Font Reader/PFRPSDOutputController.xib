@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PFROutlineWindowController">
+        <customObject id="-2" userLabel="File's Owner" customClass="PFRPSDOutputController">
             <connections>
                 <outlet property="colorLabel" destination="IFN-Jg-yn4" id="IQa-EA-3rp"/>
                 <outlet property="documentSizeLabel" destination="v9E-Df-wVC" id="izP-FY-pdE"/>

@@ -8,7 +8,7 @@
 
 #import "PFRDropView.h"
 #import "FMPSD.h"
-#import "PFROutlineWindowController.h"
+#import "PFRPSDOutputController.h"
 #import "PFRPSD.h"
 
 @interface PFRDropView () <NSDraggingDestination>
@@ -44,7 +44,7 @@
             NSLog(@"Error loading PSD: %@", err);
         }
         
-        PFROutlineWindowController *windowController = [[PFROutlineWindowController alloc] initWithWindowNibName:@"PFROutlineWindowController"];
+        PFRPSDOutputController *windowController = [[PFRPSDOutputController alloc] initWithWindowNibName:@"PFROutlineWindowController"];
         [self.windowControllers addObject:windowController];
         windowController.psd = [PFRPSD psdWithFMPSD:psd];
         [windowController showWindow:self];

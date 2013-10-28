@@ -10,7 +10,7 @@
 
 @class PFRPSD;
 
-@interface PFROutlineWindowController : NSWindowController
+@interface PFRPSDOutputController : NSWindowController
 
 @property (nonatomic, strong) PFRPSD *psd;
 
