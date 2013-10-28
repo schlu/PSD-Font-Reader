@@ -506,8 +506,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoshopHelper/PSD Font Reader-Prefix.pch";
-				INFOPLIST_FILE = "PhotoshopHelper/PSD Font Reader-Info.plist";
+				GCC_PREFIX_HEADER = "PSD Font Reader/PSD Font Reader-Prefix.pch";
+				INFOPLIST_FILE = "PSD Font Reader/PSD Font Reader-Info.plist";
 				PRODUCT_NAME = "PSD Font Reader";
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
@@ -520,8 +520,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoshopHelper/PSD Font Reader-Prefix.pch";
-				INFOPLIST_FILE = "PhotoshopHelper/PSD Font Reader-Info.plist";
+				GCC_PREFIX_HEADER = "PSD Font Reader/PSD Font Reader-Prefix.pch";
+				INFOPLIST_FILE = "PSD Font Reader/PSD Font Reader-Info.plist";
 				PRODUCT_NAME = "PSD Font Reader";
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
