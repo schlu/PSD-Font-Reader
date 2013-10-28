@@ -124,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				8A33C84617FE6B050082AD47 /* Vendor */,
-				8A33C81817FE6ADE0082AD47 /* PhotoshopHelper */,
-				8A33C83617FE6ADE0082AD47 /* PhotoshopHelperTests */,
+				8A33C81817FE6ADE0082AD47 /* PSD Font Reader */,
+				8A33C83617FE6ADE0082AD47 /* PSD Font ReaderTests */,
 				8A33C81117FE6ADE0082AD47 /* Frameworks */,
 				8A33C81017FE6ADE0082AD47 /* Products */,
 			);
@@ -162,7 +162,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		8A33C81817FE6ADE0082AD47 /* PhotoshopHelper */ = {
+		8A33C81817FE6ADE0082AD47 /* PSD Font Reader */ = {
 			isa = PBXGroup;
 			children = (
 				8A33C8731800482E0082AD47 /* Model */,
@@ -177,7 +177,7 @@
 				8A33C86F17FF5CC10082AD47 /* PSHOutlineWindowController.m */,
 				8A33C87017FF5CC10082AD47 /* PSHOutlineWindowController.xib */,
 			);
-			path = PhotoshopHelper;
+			path = "PSD Font Reader";
 			sourceTree = "<group>";
 		};
 		8A33C81917FE6ADE0082AD47 /* Supporting Files */ = {
@@ -192,13 +192,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8A33C83617FE6ADE0082AD47 /* PhotoshopHelperTests */ = {
+		8A33C83617FE6ADE0082AD47 /* PSD Font ReaderTests */ = {
 			isa = PBXGroup;
 			children = (
 				8A33C83C17FE6ADE0082AD47 /* PhotoshopHelperTests.m */,
 				8A33C83717FE6ADE0082AD47 /* Supporting Files */,
 			);
-			path = PhotoshopHelperTests;
+			path = "PSD Font ReaderTests";
 			sourceTree = "<group>";
 		};
 		8A33C83717FE6ADE0082AD47 /* Supporting Files */ = {
