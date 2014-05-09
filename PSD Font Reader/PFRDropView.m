@@ -44,7 +44,7 @@
             NSLog(@"Error loading PSD: %@", err);
         }
         
-        PFRPSDOutputController *windowController = [[PFRPSDOutputController alloc] initWithWindowNibName:@"PFROutlineWindowController"];
+        PFRPSDOutputController *windowController = [[PFRPSDOutputController alloc] initWithWindowNibName:@"PFRPSDOutputController"];
         [self.windowControllers addObject:windowController];
         windowController.psd = [PFRPSD psdWithFMPSD:psd];
         [windowController showWindow:self];
